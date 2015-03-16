@@ -76,7 +76,7 @@ public class Customer
             
             //show figures for this rental
             result += "\t" + each.getMovi().getTile()+ "\t"+String.valueOf(thisAmount) + "\n";
-            thisAmount += thisAmount;
+            totalAmount += thisAmount;
             
         }
         
