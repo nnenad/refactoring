@@ -35,34 +35,52 @@ public class Customer
     }
     
     public String statement(){
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
+        
+       
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for "+ getName()+ "\n";
         while(rentals.hasMoreElements()){
-            double thisAmount = 0;
             Rental each = (Rental)rentals.nextElement();
                
             //add frequent renter points
-            frequentRenterPoints++;
-            
-            //add bonus for two day new release rental
-            if(each.getMovi().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1){
-                 frequentRenterPoints++;
-            }
+           
             
             //show figures for this rental
-            result += "\t" + each.getMovi().getTile()+ "\t"+String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
-            
+            result += "\t" + each.getMovi().getTile()+ "\t"+String.valueOf(each.getCharge()) + "\n";    
         }
         
         //Add footer lines
         
-        result += "Amount owed is "+ String.valueOf(totalAmount) + "\n";
-        result += "You earned "+ String.valueOf(frequentRenterPoints)+" frequent renter points";
+        result += "Amount owed is "+ String.valueOf(getTotalCharge()) + "\n";
+        result += "You earned "+ String.valueOf(getFrequentPoints())+" frequent renter points";
+        return result;
+    }
+    private double getTotalCharge(){
+        double result = 0;
+        Enumeration rentals = _rentals.elements();
+        
+        while(rentals.hasMoreElements()){
+            
+            Rental each = (Rental)rentals.nextElement();
+            result += each.getCharge();
+            
+        }
         return result;
     }
     
+    private int getFrequentPoints(){
+        int frequentRenterPoints = 0;
+         Enumeration rentals = _rentals.elements();
+         
+          while(rentals.hasMoreElements()){
+            Rental each = (Rental)rentals.nextElement();
+               
+            //add frequent renter points
+           frequentRenterPoints += each.getFrequentPoints();
+        }
+        
+        return frequentRenterPoints;
+    }
     
 }
+

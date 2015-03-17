@@ -9,4 +9,6 @@ comment2.params=
 comment2.target=Movie\ getMovi()
 comment3.params=
 comment3.target=double\ getCharge()
-numComments=4
+comment4.params=
+comment4.target=int\ getFrequentPoints()
+numComments=5
