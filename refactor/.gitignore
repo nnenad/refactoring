@@ -1,0 +1,6 @@
+*target*
+*.ctxt
+*.war
+*.ear
+*.class
+/package.bluej

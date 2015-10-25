@@ -36,17 +36,13 @@ public class Customer
     
     public String statement(){
         
-       
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for "+ getName()+ "\n";
         while(rentals.hasMoreElements()){
             Rental each = (Rental)rentals.nextElement();
-               
-            //add frequent renter points
-           
-            
+             
             //show figures for this rental
-            result += "\t" + each.getMovi().getTile()+ "\t"+String.valueOf(each.getCharge()) + "\n";    
+            result += "\t" + each.getMovi().getTile()+ "\t"+String.valueOf(each.getMovi().getCharge(each.getDaysRented())) + "\n";    
         }
         
         //Add footer lines
@@ -62,7 +58,7 @@ public class Customer
         while(rentals.hasMoreElements()){
             
             Rental each = (Rental)rentals.nextElement();
-            result += each.getCharge();
+            result += each.getMovi().getCharge(each.getDaysRented());
             
         }
         return result;

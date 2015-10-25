@@ -9,7 +9,7 @@ public class Movie
 {
     // instance variables - replace the example below with your own
     private String _title;
-    private int _priceCode;
+    private Price _price;
     
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
@@ -23,7 +23,7 @@ public class Movie
     {
         // initialise instance variables
        this._title = title;
-       this._priceCode = priceCode;
+       setPriceCode(priceCode);
     }
 
     /**
@@ -37,10 +37,26 @@ public class Movie
     }
     
     public int getPriceCode(){
-        return _priceCode;
+        return _price.getPriceCode();
     }
     
-    public void setPriceCode(int priceCode){
-        this._priceCode = priceCode;
+    public void setPriceCode(int arg){
+        switch(arg){
+            case REGULAR:
+                _price = new RegularPrice();
+                break;
+            case CHILDRENS:
+                _price = new ChildrenPrice();
+                break;
+            case NEW_RELEASE:
+                _price = new NewReleasePrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorect Price Code");
+        }
+    }
+    
+     public double getCharge(int daysRented){
+         return _price.getCharge(daysRented);
     }
 }

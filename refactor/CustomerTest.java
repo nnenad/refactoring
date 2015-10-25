@@ -61,15 +61,7 @@ public class CustomerTest
         assertEquals("Rental Record for bojan\n\tkoja\t3.0\nAmount owed is 3.0\nYou earned 1 frequent renter points", string1);
     }
 
-    @Test
-    public void statement3()
-    {
-        Movie movie1 = new Movie("otpisani", 3);
-        Rental rental1 = new Rental(movie1, 7);
-        Customer customer1 = new Customer("viki");
-        customer1.addRental(rental1);
-        assertEquals("Rental Record for viki\n\totpisani\t0.0\nAmount owed is 0.0\nYou earned 1 frequent renter points", customer1.statement());
-    }
+ 
 }
 
 
