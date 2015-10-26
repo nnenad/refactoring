@@ -21,25 +21,11 @@ public class Rental
        this._daysRented = daysRented;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
     public int getDaysRented(){
         return this._daysRented;
     }
     
     public Movie getMovi(){
         return this._movie;
-    }
-       
-    public int getFrequentPoints(){
-            //add bonus for two day new release rental
-            if(getMovi().getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1){
-                 return 2;
-            }else
-                return 1;
     }
 }

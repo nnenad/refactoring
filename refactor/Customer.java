@@ -20,12 +20,6 @@ public class Customer
         this._name = name;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
     public void addRental(Rental arg){
         _rentals.addElement(arg);
     }
@@ -72,7 +66,7 @@ public class Customer
             Rental each = (Rental)rentals.nextElement();
                
             //add frequent renter points
-           frequentRenterPoints += each.getFrequentPoints();
+           frequentRenterPoints += each.getMovi().getFrequentPoints(each.getDaysRented());
         }
         
         return frequentRenterPoints;

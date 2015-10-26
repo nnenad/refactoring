@@ -15,4 +15,12 @@ public class NewReleasePrice extends Price
           return  daysRented * 3;  
             
      }
+     
+     public int getFrequentPoints(int daysRented){
+            //add bonus for two day new release rental
+            if(daysRented > 1){
+                 return 2;
+            }else
+                return 1;
+    }
 }

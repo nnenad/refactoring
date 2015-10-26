@@ -59,4 +59,10 @@ public class Movie
      public double getCharge(int daysRented){
          return _price.getCharge(daysRented);
     }
+    
+     public int getFrequentPoints(int daysRented){
+            
+            return _price.getFrequentPoints(daysRented);
+           
+    }
 }
